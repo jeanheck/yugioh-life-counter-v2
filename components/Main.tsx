@@ -10,15 +10,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: "100%"
   },
-  playerOneBoard: {
-    backgroundColor: "#6777f5", 
+  board: {
     width:"50%", 
     padding: "2%"
   },
-  playerTwoBoard: {
-    backgroundColor: "#eb7067",  
-    width:"50%", 
-    padding: "2%"
+  playerOne: {
+    backgroundColor: "#6777f5"
+  },
+  playerTwo: {
+    backgroundColor: "#eb7067"
   }
 });
 
@@ -117,13 +117,13 @@ export class Main extends Component {
       <View style={styles.screen}>
         {this.state.gameEnded ? <GameEnded winner={this.state.winner} resetGame={this.resetGame} /> : null}
 
-        <View style={styles.playerOneBoard}>
+        <View style={[ styles.board, styles.playerOne ]}>
           <LifePoints points={this.state.playerOne.lifePoints} />
 
           <Scoreboard player={this.state.playerOne} sub={this.subLifePoints} add={this.addLifePoints} /> 
         </View>
 
-        <View style={styles.playerTwoBoard}>
+        <View style={[ styles.board, styles.playerTwo ]}>
           <LifePoints points={this.state.playerTwo.lifePoints} />
 
           <Scoreboard player={this.state.playerTwo} sub={this.subLifePoints} add={this.addLifePoints} />
