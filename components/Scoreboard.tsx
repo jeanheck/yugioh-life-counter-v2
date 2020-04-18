@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ScoreMarkers } from './ScoreMarkers'
 import { ScoreSpecialMarkers } from './ScoreSpecialMarkers'
+import { Counters } from './Counters'
 
 const styles = StyleSheet.create({
   main: {
@@ -22,6 +23,8 @@ export class Scoreboard extends Component {
         <ScoreMarkers operation="+" action={this.props.add} player={this.props.player} />
 
         <ScoreSpecialMarkers add={this.props.add} sub={this.props.sub} player={this.props.player} />
+
+        <Counters player={this.props.player} />
       </View>
     )
   }

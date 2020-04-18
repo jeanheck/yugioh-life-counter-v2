@@ -18,8 +18,9 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   button: {
-    borderColor: "black",
+    borderColor: "#ccc",
     borderWidth: 3,
+    borderRadius: 20,
     marginLeft: "3.5%"
   },
   icon: {

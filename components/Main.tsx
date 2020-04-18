@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Scoreboard } from './Scoreboard';
 import { GameEnded } from './GameEnded';
 import { LifePoints } from './LifePoints';
@@ -19,6 +19,27 @@ const styles = StyleSheet.create({
   },
   playerTwo: {
     backgroundColor: "#eb7067"
+  },
+  text: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontStyle: "italic",
+    color: "#fff",
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
+    fontSize: 20
+  },
+  newGame: {
+    position: 'absolute',
+    top: 55,
+    left: 265,
+    width: 60,
+    height: 60,
+    borderColor: "#ccc",
+    borderRadius: 20,
+    borderWidth: 1,
+    backgroundColor: "rgba(200, 200, 200, 0.3)"
   }
 });
 
@@ -29,11 +50,21 @@ export class Main extends Component {
     this.state = {
       playerOne: {
         id: 'Player One',
-        lifePoints: 8000
+        lifePoints: 8000,
+        counters: [ 
+          { id: 'a', value: 0 }, 
+          { id: 'b', value: 0 },
+          { id: 'c', value: 0 }
+        ]
       },
       playerTwo: {
         id: 'Player Two',
         lifePoints: 8000,
+        counters: [ 
+          { id: 'a', value: 0 }, 
+          { id: 'b', value: 0 },
+          { id: 'c', value: 0 }
+        ]
       },
       gameEnded: false,
       winner: undefined
@@ -109,7 +140,19 @@ export class Main extends Component {
     this.state.gameEnded = false;
     this.state.winner = undefined;
 
-    this.forceUpdate()
+    this.state.playerOne.counters = [ 
+      { id: 'a', value: 0 }, 
+      { id: 'b', value: 0 },
+      { id: 'c', value: 0 }
+    ]
+
+    this.state.playerTwo.counters = [ 
+      { id: 'a', value: 0 }, 
+      { id: 'b', value: 0 },
+      { id: 'c', value: 0 }
+    ]
+
+    this.forceUpdate();
   }
 
   render() {
@@ -128,6 +171,12 @@ export class Main extends Component {
 
           <Scoreboard player={this.state.playerTwo} sub={this.subLifePoints} add={this.addLifePoints} />
         </View>
+
+        {!this.state.gameEnded && (
+          <TouchableOpacity style={[styles.newGame]} onPress={()=>{this.resetGame()}}>
+            <Text style={styles.text}>Novo Jogo</Text>
+          </TouchableOpacity>
+        )}
       </View>
     )
   }

@@ -7,9 +7,10 @@ const styles = StyleSheet.create({
     height: "20%",
   },
   button: {
-    borderColor: "black",
+    borderColor: "#ccc",
     borderWidth: 3,
-    width:"20%"
+    width:"20%",
+    borderRadius: 20,
   },
   text: {
     textAlign: "center",

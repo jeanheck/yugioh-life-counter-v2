@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 const styles = StyleSheet.create({
   body: {
     backgroundColor: "#ccc",
-    borderColor: "black",
+    borderColor: "#ccc",
     borderWidth: 3,
     width:"100%", 
     height: "100%"
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   newGameButton: {
-    borderColor: "black",
+    borderColor: "#ccc",
     borderRadius: 10,
     borderWidth: 3,
     width:"90%",

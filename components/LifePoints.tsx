@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontStyle: "italic",
     color: "#eac206",
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowColor: 'rgba(50, 50, 50, 0.75)',
     textShadowOffset: {width: -1, height: 5},
     textShadowRadius: 10
   }
